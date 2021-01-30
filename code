@@ -1,0 +1,21 @@
+@client.command(aliases=['join'])
+async def joinclub(ctx, club):
+	ef = "club: {}".format(club)
+	role = discord.utils.get(ctx.author.guild.roles, name=ef)
+	await ctx.author.add_roles(role)
+	await ctx.send(":white_check_mark: Joined the {} club".format(club))
+
+
+@client.command(aliases=['leave'])
+async def leaveclub(ctx, club):
+	ef = "club: {}".format(club)
+	role = discord.utils.get(ctx.author.guild.roles, name=ef)
+	await ctx.author.remove_roles(role)
+	await ctx.send(":white_check_mark: Left the {} club".format(club))
+
+
+@client.command()
+async def pingclub(ctx, club):
+	ef = "club: {}".format(club)
+	role = discord.utils.get(ctx.author.guild.roles, name=ef)
+	await ctx.send("{}, {} members".format(role.mention, len(role.members)))
