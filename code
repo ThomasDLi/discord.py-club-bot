@@ -20,6 +20,7 @@ async def pingclub(ctx, club):
 	role = discord.utils.get(ctx.author.guild.roles, name=ef)
 	await ctx.send("{}, {} members".format(role.mention, len(role.members)))
 
+@commands.has_permissions(manage_guild=True)
 @client.command()
 async def createclub(ctx, fa, *yes):
   channel = client.get_channel(123456789)#               <--- REPLACE 123456789 WITH CHANNEL ID
